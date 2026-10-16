@@ -1,0 +1,157 @@
+[
+  {
+    "patient_id": "IND-T2D-001",
+    "name": "Rajesh Sharma",
+    "age": 54,
+    "gender": "Male",
+    "location": "Bengaluru, Karnataka",
+    "occupation": "IT Enterprise Director",
+    "bmi": 27.2,
+    "duration_t2d_years": 7,
+    "hba1c": 8.6,
+    "fasting_glucose_mg_dl": 168.0,
+    "postprandial_glucose_mg_dl": 242.0,
+    "egfr": 78.5,
+    "serum_creatinine": 1.1,
+    "urine_acr_mg_g": 38.0,
+    "blood_pressure_systolic": 138,
+    "blood_pressure_diastolic": 88,
+    "lipid_panel": {
+      "total_cholesterol": 215,
+      "triglycerides": 245,
+      "hdl": 38,
+      "ldl": 128
+    },
+    "medications": [
+      "Metformin 1000mg BD",
+      "Glimepiride 2mg OD (Morning)",
+      "Telmisartan 40mg OD",
+      "Atorvastatin 10mg HS"
+    ],
+    "phenotype_notes": "Asian-Indian 'thin-fat' phenotype with central visceral adiposity. High sedentary hours. High postprandial excursions after white rice / paratha dinners.",
+    "risk_profile": {
+      "primary_risk": "Severe Postprandial Hyperglycemia Spike (>240 mg/dL)",
+      "urgency": "High",
+      "cardiovascular_risk_score": 68
+    },
+    "device_ids": {
+      "cgm": "FreeStyle-Libre-3-IND-8812",
+      "smartwatch": "Fitbit-Sense-2-HRV"
+    }
+  },
+  {
+    "patient_id": "IND-T2D-002",
+    "name": "Sunita Patel",
+    "age": 62,
+    "gender": "Female",
+    "location": "Ahmedabad, Gujarat",
+    "occupation": "Homemaker",
+    "bmi": 24.8,
+    "duration_t2d_years": 12,
+    "hba1c": 7.9,
+    "fasting_glucose_mg_dl": 122.0,
+    "postprandial_glucose_mg_dl": 195.0,
+    "egfr": 64.0,
+    "serum_creatinine": 1.3,
+    "urine_acr_mg_g": 62.0,
+    "blood_pressure_systolic": 132,
+    "blood_pressure_diastolic": 82,
+    "lipid_panel": {
+      "total_cholesterol": 190,
+      "triglycerides": 180,
+      "hdl": 44,
+      "ldl": 110
+    },
+    "medications": [
+      "Metformin 850mg BD",
+      "Glimepiride 3mg OD",
+      "Vildagliptin 50mg BD",
+      "Amlodipine 5mg OD"
+    ],
+    "phenotype_notes": "Longstanding diabetes with reduced renal clearance of sulfonylureas. Prone to intermittent religious fasting without dose titration.",
+    "risk_profile": {
+      "primary_risk": "Nocturnal Hypoglycemia Crash (<65 mg/dL during sleep)",
+      "urgency": "Critical",
+      "cardiovascular_risk_score": 74
+    },
+    "device_ids": {
+      "cgm": "Dexcom-G7-IND-4421",
+      "smartwatch": "Apple-Watch-S9"
+    }
+  },
+  {
+    "patient_id": "IND-T2D-003",
+    "name": "Amit Verma",
+    "age": 39,
+    "gender": "Male",
+    "location": "New Delhi, NCR",
+    "occupation": "Fintech Operations Manager",
+    "bmi": 28.5,
+    "duration_t2d_years": 2,
+    "hba1c": 7.4,
+    "fasting_glucose_mg_dl": 145.0,
+    "postprandial_glucose_mg_dl": 210.0,
+    "egfr": 98.0,
+    "serum_creatinine": 0.9,
+    "urine_acr_mg_g": 18.0,
+    "blood_pressure_systolic": 142,
+    "blood_pressure_diastolic": 92,
+    "lipid_panel": {
+      "total_cholesterol": 235,
+      "triglycerides": 310,
+      "hdl": 34,
+      "ldl": 139
+    },
+    "medications": [
+      "Metformin 500mg SR BD",
+      "Rosuvastatin 10mg HS"
+    ],
+    "phenotype_notes": "Young-onset T2D with severe hypertriglyceridemic waist phenotype. High chronic occupational stress, low HRV RMSSD, elevated resting pulse.",
+    "risk_profile": {
+      "primary_risk": "Cardio-Metabolic Autonomic Strain & Early Atherosclerotic Risk",
+      "urgency": "Moderate",
+      "cardiovascular_risk_score": 82
+    },
+    "device_ids": {
+      "cgm": "Abbott-FreeStyle-2-IND-9011",
+      "smartwatch": "Samsung-Galaxy-Watch-6"
+    }
+  },
+  {
+    "patient_id": "IND-T2D-004",
+    "name": "Priya Nair",
+    "age": 46,
+    "gender": "Female",
+    "location": "Kochi, Kerala",
+    "occupation": "High School Science Educator",
+    "bmi": 25.1,
+    "duration_t2d_years": 4,
+    "hba1c": 6.8,
+    "fasting_glucose_mg_dl": 118.0,
+    "postprandial_glucose_mg_dl": 172.0,
+    "egfr": 92.0,
+    "serum_creatinine": 0.8,
+    "urine_acr_mg_g": 12.0,
+    "blood_pressure_systolic": 124,
+    "blood_pressure_diastolic": 80,
+    "lipid_panel": {
+      "total_cholesterol": 185,
+      "triglycerides": 160,
+      "hdl": 48,
+      "ldl": 105
+    },
+    "medications": [
+      "Metformin 500mg OD"
+    ],
+    "phenotype_notes": "Well controlled baseline on monotherapy. Demonstrates rapid spikes solely following traditional festive carbohydrate-dense meals.",
+    "risk_profile": {
+      "primary_risk": "Occasional Postprandial Glycemic Excursions",
+      "urgency": "Low",
+      "cardiovascular_risk_score": 32
+    },
+    "device_ids": {
+      "cgm": "FreeStyle-Libre-3-IND-2034",
+      "smartwatch": "Garmin-Venu-3"
+    }
+  }
+]

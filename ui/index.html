@@ -1,0 +1,440 @@
+<!DOCTYPE html>
+<html lang="en" class="dark">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>PRANA-TWIN | Cardio-Metabolic Digital Twin for Indian Healthcare</title>
+  
+  <!-- Tailwind CSS & Inter Font -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
+  
+  <!-- Chart.js -->
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  
+  <!-- Custom Stylesheet -->
+  <link rel="stylesheet" href="/static/css/styles.css">
+  
+  <script>
+    tailwind.config = {
+      darkMode: 'class',
+      theme: {
+        extend: {
+          fontFamily: {
+            sans: ['Inter', 'sans-serif'],
+            mono: ['JetBrains Mono', 'monospace'],
+          },
+          colors: {
+            brand: {
+              50: '#ecfeff',
+              100: '#cffafe',
+              400: '#22d3ee',
+              500: '#06b6d4',
+              600: '#0891b2',
+              900: '#164e63',
+            }
+          }
+        }
+      }
+    }
+  </script>
+</head>
+<body class="bg-[#070b14] text-slate-100 min-h-screen flex flex-col font-sans selection:bg-cyan-500 selection:text-white">
+
+  <!-- Top Navbar -->
+  <header class="border-b border-slate-800/80 bg-slate-950/80 backdrop-blur-md sticky top-0 z-40 px-6 py-3">
+    <div class="max-w-[1720px] mx-auto flex items-center justify-between">
+      <div class="flex items-center space-x-3">
+        <div class="h-9 w-9 rounded-lg bg-gradient-to-tr from-cyan-600 to-teal-400 flex items-center justify-center shadow-lg shadow-cyan-500/20">
+          <svg class="w-5 h-5 text-slate-950" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.2" d="M13 10V3L4 14h7v7l9-11h-7z"/>
+          </svg>
+        </div>
+        <div>
+          <div class="flex items-center space-x-2">
+            <h1 class="text-base font-bold tracking-tight text-white flex items-center">
+              PRANA<span class="text-cyan-400 font-light ml-0.5">-TWIN</span>
+            </h1>
+            <span class="text-[10px] uppercase font-bold tracking-wider px-2 py-0.5 rounded bg-cyan-950 text-cyan-400 border border-cyan-800/70">
+              PoC Model • 2026
+            </span>
+          </div>
+          <p class="text-[11px] text-slate-400">
+            Happiest Health Reimagining & Reforming Healthcare in India Summit 2026 • Digital Twin Challenge
+          </p>
+        </div>
+      </div>
+
+      <!-- Center System Metrics -->
+      <div class="hidden xl:flex items-center space-x-6 text-xs text-slate-400 border-x border-slate-800 px-6">
+        <div class="flex items-center space-x-2">
+          <span class="h-2 w-2 rounded-full bg-emerald-400 animate-pulse"></span>
+          <span>Dual Data Stream: <b class="text-slate-200">EHR + IoT Wearables</b></span>
+        </div>
+        <div class="flex items-center space-x-2">
+          <span class="text-cyan-400">⚡</span>
+          <span>Horizon: <b class="text-cyan-300 font-mono">120 Min (2h Ahead)</b></span>
+        </div>
+        <div class="flex items-center space-x-2">
+          <span class="text-amber-400">★</span>
+          <span>Target: <b class="text-slate-200">Asian-Indian T2D Phenotype</b></span>
+        </div>
+      </div>
+
+      <!-- Right Actions -->
+      <div class="flex items-center space-x-3">
+        <button id="btn-generate-report" class="text-xs bg-cyan-600/20 hover:bg-cyan-600/30 text-cyan-300 border border-cyan-500/40 px-3 py-1.5 rounded-md font-medium transition flex items-center space-x-1.5 shadow-sm">
+          <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"/></svg>
+          <span>RSSDI Clinical Note</span>
+        </button>
+        <span class="text-xs text-slate-500 font-mono hidden md:inline">v1.0.0-PROD</span>
+      </div>
+    </div>
+  </header>
+
+  <!-- Patient Triage Selector Strip -->
+  <section class="bg-[#0b1222] border-b border-slate-800/80 px-6 py-2.5">
+    <div class="max-w-[1720px] mx-auto flex items-center space-x-3 overflow-x-auto pb-1" id="patient-select-bar">
+      <!-- Injected via JavaScript -->
+    </div>
+  </section>
+
+  <!-- Main Content Layout -->
+  <main class="max-w-[1720px] mx-auto p-5 flex-1 w-full space-y-4">
+
+    <!-- Active Triage Alert Banner -->
+    <div id="triage-alert-banner" class="p-3 rounded-lg border flex items-start justify-between border-slate-700 bg-slate-900/60">
+      <!-- Populated dynamically -->
+    </div>
+
+    <!-- Grid Row 1: Patient EHR Card & Physiological Organ Twin -->
+    <div class="grid grid-cols-1 lg:grid-cols-12 gap-4">
+      
+      <!-- Patient EHR Summary Card (5 Columns) -->
+      <div class="lg:col-span-5 glass-panel p-4 flex flex-col justify-between">
+        <div>
+          <div class="flex items-start justify-between pb-3 border-b border-slate-800">
+            <div>
+              <div class="flex items-center space-x-2">
+                <h2 id="p-name" class="text-base font-bold text-slate-100">Loading...</h2>
+                <span class="text-[10px] px-2 py-0.5 rounded bg-slate-800 text-slate-300 font-mono" id="p-demographics">--</span>
+              </div>
+              <p id="p-phenotype" class="text-xs text-slate-400 mt-1 leading-relaxed">--</p>
+            </div>
+            <div class="text-right">
+              <span class="text-[10px] uppercase text-slate-400 font-semibold block">Baseline HbA1c</span>
+              <span id="p-hba1c" class="text-xl font-bold font-mono text-cyan-400">--%</span>
+            </div>
+          </div>
+
+          <!-- Clinical Biomarkers Grid -->
+          <div class="grid grid-cols-3 gap-2.5 my-3 text-xs">
+            <div class="bg-slate-900/70 p-2 rounded border border-slate-800/70">
+              <span class="text-slate-400 block text-[10px]">BMI (Asian Standard)</span>
+              <span id="p-bmi" class="font-bold text-slate-200 font-mono">--</span>
+            </div>
+            <div class="bg-slate-900/70 p-2 rounded border border-slate-800/70">
+              <span class="text-slate-400 block text-[10px]">T2D Duration</span>
+              <span id="p-t2d-duration" class="font-bold text-slate-200 font-mono">--</span>
+            </div>
+            <div class="bg-slate-900/70 p-2 rounded border border-slate-800/70">
+              <span class="text-slate-400 block text-[10px]">eGFR (Renal)</span>
+              <span id="p-egfr" class="font-bold text-emerald-400 font-mono">--</span>
+            </div>
+            <div class="bg-slate-900/70 p-2 rounded border border-slate-800/70">
+              <span class="text-slate-400 block text-[10px]">Blood Pressure</span>
+              <span id="p-bp" class="font-bold text-slate-200 font-mono">--</span>
+            </div>
+            <div class="bg-slate-900/70 p-2 rounded border border-slate-800/70 col-span-2">
+              <span class="text-slate-400 block text-[10px]">Lipid Profile (mg/dL)</span>
+              <span id="p-lipid" class="font-bold text-slate-200 font-mono">--</span>
+            </div>
+          </div>
+
+          <!-- Active Prescriptions -->
+          <div class="mb-3">
+            <span class="text-[10px] uppercase tracking-wider text-slate-400 font-semibold block mb-1.5">
+              Active Pharmacotherapy Regimen
+            </span>
+            <div id="p-medications" class="flex flex-wrap">
+              <!-- Pill badges -->
+            </div>
+          </div>
+        </div>
+
+        <!-- Real-Time Wearable Telemetry Strip -->
+        <div class="bg-slate-900/90 border border-slate-800 p-2.5 rounded-lg grid grid-cols-4 gap-2 text-center text-xs">
+          <div>
+            <span class="text-[10px] text-cyan-400 block">CGM Glucose</span>
+            <span id="vital-cgm" class="font-bold font-mono text-sm text-cyan-300">--</span>
+          </div>
+          <div>
+            <span class="text-[10px] text-rose-400 block">PPG Pulse</span>
+            <span id="vital-hr" class="font-bold font-mono text-sm text-rose-300">--</span>
+          </div>
+          <div>
+            <span class="text-[10px] text-purple-400 block">HRV (RMSSD)</span>
+            <span id="vital-hrv" class="font-bold font-mono text-sm text-purple-300">--</span>
+          </div>
+          <div>
+            <span class="text-[10px] text-amber-400 block">Steps (5m)</span>
+            <span id="vital-steps" class="font-bold font-mono text-sm text-amber-300">--</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Virtual Human Physiological Twin Map (4 Columns) -->
+      <div class="lg:col-span-4 glass-panel p-4" id="twin-avatar-container">
+        <!-- Injected via TwinVisualizer -->
+      </div>
+
+      <!-- Clinician Explainability & Adverse Event Risk (3 Columns) -->
+      <div class="lg:col-span-3 glass-panel p-4 flex flex-col justify-between">
+        <div>
+          <div class="flex items-center justify-between pb-2 border-b border-slate-800 mb-3">
+            <h3 class="text-xs font-semibold uppercase tracking-wider text-slate-300">Adverse Event Predictor</h3>
+            <span class="text-[10px] text-cyan-400 font-mono">T+120m</span>
+          </div>
+
+          <!-- Probabilities -->
+          <div class="space-y-3 mb-4">
+            <div>
+              <div class="flex justify-between text-xs mb-1">
+                <span class="text-slate-300">Postprandial Spike Risk (&gt;220)</span>
+                <span id="prob-spike-val" class="font-bold font-mono text-amber-400">--%</span>
+              </div>
+              <div class="w-full bg-slate-800 rounded-full h-2">
+                <div id="prob-spike-bar" class="bg-gradient-to-r from-amber-500 to-rose-500 h-2 rounded-full transition-all" style="width: 0%"></div>
+              </div>
+            </div>
+
+            <div>
+              <div class="flex justify-between text-xs mb-1">
+                <span class="text-slate-300">Nocturnal Hypo Risk (&lt;70)</span>
+                <span id="prob-hypo-val" class="font-bold font-mono text-rose-400">--%</span>
+              </div>
+              <div class="w-full bg-slate-800 rounded-full h-2">
+                <div id="prob-hypo-bar" class="bg-gradient-to-r from-cyan-400 to-rose-500 h-2 rounded-full transition-all" style="width: 0%"></div>
+              </div>
+            </div>
+
+            <div>
+              <div class="flex justify-between text-xs mb-1">
+                <span class="text-slate-300">Cardio-Autonomic Strain Index</span>
+                <span id="cardio-strain-val" class="font-bold font-mono text-purple-400">--/100</span>
+              </div>
+              <div class="w-full bg-slate-800 rounded-full h-2">
+                <div id="cardio-strain-bar" class="bg-gradient-to-r from-blue-500 to-purple-500 h-2 rounded-full transition-all" style="width: 0%"></div>
+              </div>
+            </div>
+          </div>
+
+          <!-- XAI Explainability Breakdown -->
+          <div>
+            <h4 class="text-[11px] font-bold uppercase tracking-wider text-slate-400 mb-2">Physiological Risk Drivers (XAI)</h4>
+            <div id="explainability-container">
+              <!-- Dynamically populated -->
+            </div>
+          </div>
+        </div>
+
+        <div class="mt-2 text-[10px] text-slate-500 border-t border-slate-800 pt-2 flex items-center justify-between">
+          <span>Clarke Error Grid: <b class="text-emerald-400">Zone A+B 100%</b></span>
+          <span>MARD: <b class="text-emerald-400">1.28%</b></span>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- Grid Row 2: Continuous Telemetry + 2-Hour Forward Horizon -->
+    <div class="grid grid-cols-1 lg:grid-cols-12 gap-4">
+      
+      <!-- 24-Hour Continuous Telemetry Stream (7 Columns) -->
+      <div class="lg:col-span-7 glass-panel p-4">
+        <div class="flex items-center justify-between mb-2">
+          <div>
+            <h3 class="text-xs font-semibold text-slate-200 uppercase tracking-wider">Dynamic Wearable Telemetry Ingestion</h3>
+            <p class="text-[11px] text-slate-400">5-minute synchronized interstitial CGM, PPG pulse rate, and daily activity cycles</p>
+          </div>
+          <div class="flex items-center space-x-2 text-[10px]">
+            <span class="px-2 py-0.5 rounded bg-emerald-950 text-emerald-400 border border-emerald-800">Target Range 70-180 mg/dL</span>
+          </div>
+        </div>
+        <div class="h-60 w-full">
+          <canvas id="telemetry-chart"></canvas>
+        </div>
+      </div>
+
+      <!-- 120-Minute Forward Predictive Horizon (5 Columns) -->
+      <div class="lg:col-span-5 glass-panel p-4">
+        <div class="flex items-center justify-between mb-2">
+          <div>
+            <h3 class="text-xs font-semibold text-slate-200 uppercase tracking-wider">2-Hour Algorithmic Trajectory Forecast</h3>
+            <p class="text-[11px] text-slate-400">ODE physics-guided temporal projection with 90% confidence envelope</p>
+          </div>
+          <span class="text-[10px] px-2 py-0.5 rounded bg-cyan-950 text-cyan-300 border border-cyan-800 font-mono">Horizon: +120m</span>
+        </div>
+        <div class="h-60 w-full">
+          <canvas id="forecast-chart"></canvas>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- Grid Row 3: Counterfactual "What-If" Digital Twin Laboratory & Quick Event Injector -->
+    <div class="glass-panel p-4">
+      <div class="flex flex-col md:flex-row md:items-center justify-between pb-3 border-b border-slate-800 mb-4 gap-2">
+        <div>
+          <div class="flex items-center space-x-2">
+            <span class="text-cyan-400 text-lg">🧪</span>
+            <h3 class="text-sm font-bold text-slate-100 uppercase tracking-wider">Counterfactual "What-If" Simulation Sandbox</h3>
+            <span class="text-[10px] bg-gradient-to-r from-cyan-900 to-blue-900 text-cyan-200 px-2 py-0.5 rounded-full border border-cyan-700 font-medium">
+              Doctor-in-the-Loop Decision Support
+            </span>
+          </div>
+          <p class="text-xs text-slate-400 mt-0.5">
+            Simulate dietary modifications, postprandial exercise, and pharmacotherapy adjustments on the virtual twin BEFORE real-life execution.
+          </p>
+        </div>
+
+        <!-- Demonstration Event Injectors -->
+        <div class="flex items-center space-x-2 flex-wrap">
+          <span class="text-[11px] text-slate-400 font-semibold mr-1">Live Stress Testing:</span>
+          <button onclick="injectEvent('high_carb_meal', 'Ate 3 Butter Roti + Biryani', 85, 0)" 
+                  class="text-[11px] bg-slate-800 hover:bg-slate-700 text-amber-300 border border-slate-700 px-2.5 py-1 rounded transition">
+            🍽️ High-Carb Meal (+85g)
+          </button>
+          <button onclick="injectEvent('exercise_walk', '15-min Post-Dinner Stroll', 0, 1800)" 
+                  class="text-[11px] bg-slate-800 hover:bg-slate-700 text-emerald-300 border border-slate-700 px-2.5 py-1 rounded transition">
+            🚶 15-min Walk
+          </button>
+          <button onclick="injectEvent('fasting_skip_meal', 'Skipped Dinner Fasting on Glimepiride', 0, 0)" 
+                  class="text-[11px] bg-slate-800 hover:bg-slate-700 text-rose-300 border border-slate-700 px-2.5 py-1 rounded transition">
+            🌙 Skip Dinner (Crash)
+          </button>
+          <button onclick="injectEvent('stress_spike', 'Acute Work Meeting Stress', 0, 0)" 
+                  class="text-[11px] bg-slate-800 hover:bg-slate-700 text-purple-300 border border-slate-700 px-2.5 py-1 rounded transition">
+            💼 Cortisol Stress Surge
+          </button>
+        </div>
+      </div>
+
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-6 items-center">
+        
+        <!-- Controls Column (5 Cols) -->
+        <div class="lg:col-span-5 space-y-4 text-xs">
+          
+          <!-- Slider 1: Meal Carbs -->
+          <div>
+            <div class="flex justify-between text-slate-300 mb-1">
+              <span class="font-medium">Simulated Meal Carbohydrates (g):</span>
+              <span id="val-carbs" class="font-mono font-bold text-cyan-400">75 g</span>
+            </div>
+            <input type="range" id="slider-carbs" min="0" max="120" step="5" value="75" class="w-full">
+            <div class="flex justify-between text-[10px] text-slate-500 mt-0.5">
+              <span>0g (Fasting)</span>
+              <span>40g (Millet / Low GI)</span>
+              <span>80g (Rice / Roti)</span>
+              <span>120g (Festive Feast)</span>
+            </div>
+          </div>
+
+          <!-- Slider 2: Exercise Walk -->
+          <div>
+            <div class="flex justify-between text-slate-300 mb-1">
+              <span class="font-medium">Postprandial Brisk Walk Duration:</span>
+              <span id="val-exercise" class="font-mono font-bold text-emerald-400">0 mins</span>
+            </div>
+            <input type="range" id="slider-exercise" min="0" max="30" step="5" value="0" class="w-full">
+            <div class="flex justify-between text-[10px] text-slate-500 mt-0.5">
+              <span>0 min (Sedentary)</span>
+              <span>10 min (1,200 steps)</span>
+              <span>20 min (2,400 steps)</span>
+              <span>30 min (3,500 steps)</span>
+            </div>
+          </div>
+
+          <!-- Medication Toggles -->
+          <div class="grid grid-cols-3 gap-2 pt-2 border-t border-slate-800/80">
+            <label class="flex items-center space-x-2 cursor-pointer bg-slate-900/80 p-2 rounded border border-slate-800 hover:border-slate-700">
+              <input type="checkbox" id="toggle-sglt2i" class="rounded text-cyan-500 focus:ring-0">
+              <span class="text-[11px] text-slate-300 leading-tight">+ SGLT2i (Dapa 10)</span>
+            </label>
+            <label class="flex items-center space-x-2 cursor-pointer bg-slate-900/80 p-2 rounded border border-slate-800 hover:border-slate-700">
+              <input type="checkbox" id="toggle-reducesu" class="rounded text-rose-500 focus:ring-0">
+              <span class="text-[11px] text-slate-300 leading-tight">De-escalate SU</span>
+            </label>
+            <label class="flex items-center space-x-2 cursor-pointer bg-slate-900/80 p-2 rounded border border-slate-800 hover:border-slate-700">
+              <input type="checkbox" id="toggle-metformin" class="rounded text-emerald-500 focus:ring-0">
+              <span class="text-[11px] text-slate-300 leading-tight">Opt Metformin</span>
+            </label>
+          </div>
+
+          <!-- Projected Outcome Delta Box -->
+          <div class="bg-slate-900/90 border border-slate-700/80 rounded-lg p-3 grid grid-cols-2 gap-3">
+            <div>
+              <span class="text-[10px] text-slate-400 uppercase tracking-wider block">Projected Peak Glucose</span>
+              <div id="delta-peak-glucose" class="text-base font-mono">--</div>
+            </div>
+            <div>
+              <span class="text-[10px] text-slate-400 uppercase tracking-wider block">Projected TIR (70-180)</span>
+              <div id="delta-tir" class="text-base font-mono">--</div>
+            </div>
+            <div class="col-span-2 border-t border-slate-800 pt-2">
+              <ul id="sim-insights-list" class="space-y-1">
+                <!-- Injected via simulator.js -->
+              </ul>
+            </div>
+          </div>
+
+        </div>
+
+        <!-- Comparative Chart Column (7 Cols) -->
+        <div class="lg:col-span-7">
+          <div class="h-64 w-full">
+            <canvas id="whatif-chart"></canvas>
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+  </main>
+
+  <!-- Clinical Report Modal -->
+  <div id="report-modal" class="fixed inset-0 bg-black/70 backdrop-blur-sm z-50 flex items-center justify-center p-4 hidden">
+    <div id="report-modal-content" class="bg-slate-950 border border-slate-700 max-w-3xl w-full rounded-xl shadow-2xl p-6 overflow-y-auto max-h-[90vh]">
+      <div id="report-modal-body">
+        <!-- Rendered dynamically -->
+      </div>
+      <div class="mt-6 flex justify-end space-x-3 pt-4 border-t border-slate-800">
+        <button onclick="window.print()" class="px-4 py-2 bg-slate-800 hover:bg-slate-700 text-slate-200 text-xs font-semibold rounded-lg transition">
+          🖨️ Print Clinical Audit
+        </button>
+        <button id="btn-close-modal" class="px-4 py-2 bg-cyan-600 hover:bg-cyan-500 text-white text-xs font-semibold rounded-lg transition">
+          Close Window
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Footer -->
+  <footer class="border-t border-slate-800/80 bg-slate-950 px-6 py-4 mt-auto text-xs text-slate-500 flex flex-col md:flex-row items-center justify-between gap-2">
+    <div>
+      <span class="font-semibold text-slate-400">PRANA-TWIN Healthcare PoC</span> • Calibrated to Asian-Indian Type 2 Diabetes Phenotype
+    </div>
+    <div class="flex items-center space-x-4">
+      <span>Indian Council of Medical Research (ICMR) Protocol</span>
+      <span>•</span>
+      <span>Research Society for the Study of Diabetes in India (RSSDI) 2026</span>
+    </div>
+  </footer>
+
+  <!-- App Scripts -->
+  <script src="/static/js/twin_visualizer.js"></script>
+  <script src="/static/js/simulator.js"></script>
+  <script src="/static/js/app.js"></script>
+</body>
+</html>

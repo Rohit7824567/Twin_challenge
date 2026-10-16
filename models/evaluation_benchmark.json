@@ -1,0 +1,23 @@
+{
+  "dataset_samples": 1200,
+  "test_holdout_samples": 300,
+  "continuous_prediction_metrics": {
+    "prediction_horizon": "120 minutes (2 hours ahead)",
+    "rmse_mg_dl": 1.97,
+    "mae_mg_dl": 1.44,
+    "mard_pct": 1.28,
+    "clinical_grade_threshold_met": true
+  },
+  "clarke_error_grid_analysis": {
+    "zone_a_pct": 99.0,
+    "zone_b_pct": 1.0,
+    "zone_ab_total_pct": 100.0,
+    "zone_c_pct": 0.0,
+    "zone_d_pct": 0.0,
+    "zone_e_pct": 0.0
+  },
+  "adverse_event_detection": {
+    "hyperglycemic_spike_auc": 1.0,
+    "hypoglycemic_crash_auc": 1.0
+  }
+}
