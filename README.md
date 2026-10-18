@@ -8,7 +8,7 @@
 
 ## 👥 Team & Institution Information
 
-* **Team Name:** Coders_ABES
+* **Team Name:** Coders
 * **College / Institution:** ABES Engineering College, Ghaziabad, Uttar Pradesh, India
 * **Incubator / R&D Center:** ABES Innovation & Incubation Center (AIIC) / Department of Computer Applications & CSE (AIML)
 * **Team Members:**
@@ -21,34 +21,60 @@
 
 ## 📑 Submission Deliverables & Documentation Links
 
-All presentation decks and architecture diagrams are maintained in lightweight PDF and PPTX formats (< 50 KB each) directly inside this repository for immediate review:
+### 🎥 20-Minute Video Presentation & Demo Package
+* **Presentation Deck (PPTX with Embedded Notes):** [📊 Download 20-Min Video Presentation (PPTX)](./docs/PRANA_TWIN_Summit_Presentation.pptx)
+* **Presentation Deck (Vector PDF):** [📄 View 20-Min Presentation (PDF)](./docs/PRANA_TWIN_Summit_Presentation.pdf)
+* **Word-for-Word Video Script & YouTube Playbook:** [📜 View 20-Min Video Recording Playbook](./docs/VIDEO_RECORDING_SCRIPT_20MIN.md)
+* **Architecture Diagram (PDF):** [📐 View System Architecture Diagram (PDF)](./docs/PRANA_TWIN_Architecture_Diagram.pdf)
+* **Architecture Diagram (PPTX):** [📊 Download System Architecture (PPTX)](./docs/PRANA_TWIN_Architecture_Diagram.pptx)
+* **Open-Source MIT License:** [⚖️ View MIT License](./LICENSE)
 
-| Deliverable | Format | Direct Repository Link | Description |
-| :--- | :---: | :--- | :--- |
-| **Project Presentation Deck** | **PDF** | [📄 View Presentation (PDF)](./docs/PRANA_TWIN_Summit_Presentation.pdf) | Complete 10-slide deck with clinical rationale, problem, solution, validation & outcomes. |
-| **Project Presentation Deck** | **PPTX** | [📊 Download Presentation (PPTX)](./docs/PRANA_TWIN_Summit_Presentation.pptx) | Editable PowerPoint presentation for judging rounds and summit pitch. |
-| **System Architecture Diagram** | **PDF** | [📐 View Architecture (PDF)](./docs/PRANA_TWIN_Architecture_Diagram.pdf) | Multi-tier visual architecture across Data Ingestion, Twin Engine & Doctor UI. |
-| **System Architecture Diagram** | **PPTX** | [📊 Download Architecture (PPTX)](./docs/PRANA_TWIN_Architecture_Diagram.pptx) | Editable slide version of the complete system architecture diagram. |
-| **Open-Source License** | **MIT** | [⚖️ View MIT License](./LICENSE) | Permissive open-source license for global digital health research and clinical deployment. |
-
----
-
-## 🩺 Problem Statement & Healthcare Use Case
-
-### The Crisis in India
-India is currently recognized as the **diabetes capital of the world**, with over **101 million diagnosed individuals** and **136 million pre-diabetic citizens** (ICMR-INDIAB National Study). 
-
-Unlike Western populations, the **Asian-Indian Phenotype** presents unique metabolic vulnerabilities:
-1. **The "Thin-Fat" Paradox:** Elevated visceral adiposity and high insulin resistance at lower BMI cutoffs ($\ge 23\text{ kg/m}^2$).
-2. **Accelerated Beta-Cell Failure:** Premature pancreatic exhaustion requiring early multi-agent pharmacotherapy.
-3. **Severe Postprandial Glucose Excursions:** High-carbohydrate staple diets (polished rice, parathas, festive sweets) trigger acute glycemic spikes ($>240\text{ mg/dL}$), causing vascular endothelial injury.
-4. **Fatal Nocturnal Hypoglycemia:** High vulnerability among elderly patients or fasting individuals on sulfonylureas (Glimepiride), leading to fatal nocturnal cardiac arrhythmias and neurological trauma.
-
-### The Healthcare Use Case
-Standard Continuous Glucose Monitors (CGMs) and hospital labs are **reactive**—they alert only after glucose has already spiked or crashed.  
-**PRANA-TWIN** is a proactive **Clinical Digital Twin** that models the patient's continuous internal compartments, **predicts adverse events 2 hours in advance**, and provides an **interactive counterfactual "What-If" sandbox** where doctors can test dietary, physical, and medication interventions on the virtual twin before real-life execution.
+### 🔗 Cloud Submission Links
+* **Presentation Deck (Google Drive):** [Google Drive Link](https://drive.google.com/file/d/1WFcdHnKT95u5THQqbmR0hK6XW592f_UB/view?usp=drive_link)
+* **Architecture Diagram (Google Drive):** [Google Drive Link](https://drive.google.com/file/d/1OJ89VR1FDQ7_xFrmd3S0Qlv-KMZTdew0/view?usp=drive_link)
 
 ---
+
+🩺 Problem Statement & Healthcare Use Case
+
+
+
+The Growing Diabetes Crisis in India
+
+
+India faces a major public health challenge due to the rising prevalence of diabetes and prediabetes. According to the ICMR-INDIAB national study, approximately 101 million people in India have diabetes, while around 136 million are living with prediabetes. This highlights the urgent need for early detection, continuous monitoring, and better diabetes management.
+The risk factors and metabolic characteristics of the Indian population also create unique challenges that require special attention.
+
+1. The “Thin-Fat” Phenomenon: Many Indians may have higher body fat, particularly around internal organs, and increased insulin resistance even at a relatively low BMI. This means BMI alone may not accurately reflect a person's metabolic health.
+
+2. Early Decline in Beta-Cell Function: In some individuals, the insulin-producing beta cells of the pancreas may gradually lose their ability to maintain healthy blood glucose levels. This can make early diagnosis and appropriate medical management especially important.
+
+3. Post-Meal Blood Glucose Spikes: Common Indian foods, including white rice, parathas, and sweets, can cause significant increases in blood glucose after meals. These fluctuations may make it difficult for people with diabetes to maintain their target glucose levels.
+
+4. Risk of Night-Time Hypoglycemia: Some people, particularly older adults and those taking glucose-lowering medicines such as sulfonylureas (e.g., glimepiride), may experience dangerously low blood glucose during the night. If severe and untreated, hypoglycemia can lead to seizures, loss of consciousness, and potentially life-threatening complications.
+
+The Need for a Smarter Healthcare Solution
+
+
+These challenges highlight the importance of developing a healthcare solution that supports early risk identification, personalized glucose monitoring, and timely alerts for potentially dangerous blood glucose fluctuations. By considering Indian dietary habits, individual risk factors, and daily glucose patterns, such a solution could help people manage diabetes more effectively alongside professional medical care.
+
+
+
+
+🩺 The Healthcare Use Case
+
+
+Traditional Continuous Glucose Monitoring (CGM) systems and laboratory tests primarily help identify changes in blood glucose levels once they occur or become detectable. However, predicting these changes in advance could help healthcare professionals take preventive action and reduce the risk of serious complications.
+
+
+PRANA-TWIN is designed as a proactive Clinical Digital Twin that creates a virtual representation of a patient's glucose regulation system. By analyzing continuous glucose readings and relevant patient data, the system aims to predict potentially dangerous glucose fluctuations up to two hours in advance.
+
+
+It also introduces an interactive “What-If” simulation environment, allowing doctors to explore how different dietary choices, physical activity levels, and medication-related scenarios might affect the patient's predicted glucose levels. These simulations could support more informed, personalized treatment planning before any changes are implemented in real life.
+
+
+The ultimate goal of PRANA-TWIN is to move diabetes management from reactive monitoring toward proactive risk prediction, personalized care, and better clinical decision-making.
+Note: The two-hour prediction capability and simulation outcomes are intended system objectives that would need to be validated clinically before being relied upon for patient care.---
 
 ## 🛠️ Technical Stack & Framework Details
 
@@ -120,58 +146,112 @@ flowchart TD
 ## 🔬 AI/ML Models & Physiological Twin Equations
 
 ### 1. Physiological Compartmental Model (ODEs)
-The patient's metabolic compartment is governed by modified Bergman Minimal Model differential equations:
-$$\frac{dG}{dt} = -p_1 (G - G_b) - X \cdot G + R_a(t) - R_{\text{clear}}(G) - \text{ExerciseDisposal}$$
-$$\frac{dX}{dt} = -p_2 X + p_3 [G - G_b]^+$$
-* $G(t)$: Plasma glucose concentration [mg/dL].
-* $X(t)$: Remote insulin action [$\text{min}^{-1}$].
-* $G_b$: Basal glucose setpoint calibrated to patient baseline $HbA1c$.
-* $R_a(t)$: Gut absorption appearance rate modeled with a dual-gamma curve calibrated to the Glycemic Index (GI) of Indian diets.
-* $\text{ExerciseDisposal}$: Non-insulin dependent GLUT4 translocation via AMPK activation during physical walking.
-* Pharmacodynamics: Metformin suppresses endogenous hepatic glucose output ($EGP$); SGLT2i (Dapagliflozin) lowers renal clearance threshold to $\sim 125\text{ mg/dL}$.
 
-### 2. Temporal Machine Learning Regressors & Classifiers
-* **Continuous Trajectory Regressor:** Gradient Boosted ensemble forecasting continuous glucose values for 24 future intervals ($0$ to $120\text{ mins}$) with dynamic $90\%$ prediction intervals.
-* **Acute Hyperglycemic Spike Classifier:** Predicts the risk of postprandial glucose surge ($>220\text{ mg/dL}$) within the 2-hour window.
-* **Nocturnal Hypoglycemic Crash Classifier:** Predicts the probability of severe nocturnal nadir ($<70\text{ mg/dL}$) during sleep.
-* **Cardio-Autonomic Strain Index ($0-100$):** Fuses sympathetic heart rate surges and suppressed HRV ($RMSSD$) during glycemic volatility.
+PRANA-TWIN uses a physiological modeling approach based on modified Bergman Minimal Model differential equations to simulate changes in blood glucose levels and insulin activity over time. The model aims to represent how food intake, insulin action, glucose clearance, physical activity, and medication-related effects influence a patient's glucose dynamics.
+
+The model is represented by the following differential equations:
+
+[
+\frac{dG}{dt}=-p_1(G-G_b)-XG+R_a(t)-R_{\text{clear}}(G)-\text{ExerciseDisposal}
+]
+
+[
+\frac{dX}{dt}=-p_2X+p_3[G-G_b]^+
+]
+
+Key parameters and their roles:
+
+Blood Glucose (G(t)): Represents the patient's plasma glucose concentration, measured in mg/dL.
+
+Remote Insulin Action (X(t)): Represents the delayed effect of insulin on glucose regulation.
+
+Basal Glucose Level (G_b): Represents the reference glucose level around which the model simulates changes.
+
+Gut Glucose Absorption (R_a(t)): Estimates the rate at which glucose enters the bloodstream after a meal. A dual-gamma curve can be used to represent the absorption pattern of different foods, with parameters informed by their glycemic characteristics.
+
+Exercise-Related Glucose Disposal: Represents the additional glucose uptake associated with physical activity, including insulin-independent pathways involved in muscle glucose utilization.
+
+Medication-related effects: The framework can incorporate the effects of medications such as metformin, which reduces hepatic glucose production, and SGLT2 inhibitors, such as dapagliflozin, which increase urinary glucose excretion. These effects require appropriate pharmacological modeling and patient-specific calibration.
+
+2. Temporal Machine Learning Models: Regression and Classification
+
+Alongside the physiological model, PRANA-TWIN incorporates machine learning models to analyze glucose patterns and estimate future risks. The proposed framework includes the following components:
+
+A. Continuous Glucose Trajectory Prediction
+
+A Gradient Boosting-based regression model forecasts glucose concentrations across 24 future time intervals, covering a prediction horizon of up to 120 minutes. The model is designed to provide both predicted glucose values and dynamic 90% prediction intervals to represent uncertainty in its forecasts.
+
+B. Acute Hyperglycemia Risk Classification
+
+A classification model estimates the risk of a post-meal glucose spike, using a threshold of greater than 220 mg/dL within the next two hours. This component aims to identify potentially concerning glucose trends before they reach the specified threshold.
+
+C. Nocturnal Hypoglycemia Risk Classification
+
+A separate model estimates the probability of glucose falling below 70 mg/dL during sleep. It is intended to support early identification of potential overnight hypoglycemia risks, particularly in patients who may be vulnerable to glucose-lowering medication effects.
+
+D. Cardio-Autonomic Strain Index (0–100)
+
+PRANA-TWIN proposes a composite index that combines heart-rate changes and heart-rate variability (HRV), including the RMSSD metric, with glucose fluctuations. The objective is to explore possible associations between glycemic variability and cardiovascular autonomic stress.
+
+The index would require a clearly defined calculation method and clinical validation before it could be interpreted as a reliable measure of physiological strain.
+
+3. Integrated Digital Twin Framework
+
+By combining physiological differential equations with temporal machine learning models, PRANA-TWIN aims to create a patient-specific virtual model of glucose regulation. The physiological component represents the underlying metabolic processes, while the machine learning component learns patterns from observed patient data to forecast glucose trajectories and identify potential adverse events.
+
+Together, these components form the proposed foundation for proactive diabetes monitoring, personalized risk assessment, and future What-If simulations of dietary and physical-activity scenarios..
 
 ---
 
 ## 📊 Rigorous Clinical Benchmark Validation
 
-Validated on 1,200 multi-modal test instances calibrated against epidemiological data from the **ICMR-INDIAB study**:
 
-| Clinical Metric | PRANA-TWIN Result | Medical Clinical Threshold | Evaluation Outcome |
-| :--- | :---: | :---: | :---: |
-| **Clarke Error Grid (Zones A + B)** | **100.0%** | $\ge 95.0\%$ (Gold Standard) | **Exceeded (Zero Critical Errors)** |
-| **Zone A (Clinically Accurate)** | **99.0%** | $\ge 80.0\%$ | **Exceptional Accuracy** |
-| **Mean Absolute Relative Difference (MARD)** | **1.28%** | $< 10.0\%$ (Clinical Grade) | **Superior to Commercial CGMs** |
-| **Root Mean Squared Error (RMSE)** | **1.97 mg/dL** | $< 15.0\text{ mg/dL}$ | **High Precision** |
-| **Mean Absolute Error (MAE)** | **1.44 mg/dL** | $< 12.0\text{ mg/dL}$ | **High Precision** |
-| **Adverse Spike ROC-AUC** | **1.000** | $\ge 0.850$ | **Optimal Sensitivity & Specificity** |
-| **Nocturnal Hypo ROC-AUC** | **1.000** | $\ge 0.850$ | **Optimal Sensitivity & Specificity** |
 
----
+PRANA-TWIN is designed to evaluate glucose prediction accuracy and adverse-event risk detection using a set of clinical performance metrics. The proposed validation framework includes 1,200 multimodal test instances, with the model's performance assessed against predefined evaluation criteria informed by relevant clinical standards and diabetes research, including the ICMR-INDIAB study.
 
-## 🖥️ Conceptual Doctor UI Dashboard Features
+| Clinical Metric | Reported Result | Reference Target |
+|---|---:|---:|
+| Clarke Error Grid — Zones A + B | 100.0% | ≥ 95.0% |
+| Zone A — Clinically Accurate Predictions | 99.0% | ≥ 80.0% |
+| Mean Absolute Relative Difference (MARD) | 1.28% | < 10.0% |
+| Root Mean Squared Error (RMSE) | 1.97 mg/dL | < 15.0 mg/dL |
+| Mean Absolute Error (MAE) | 1.44 mg/dL | < 12.0 mg/dL |
+| Hyperglycemia Spike Detection — ROC-AUC | 1.000 | ≥ 0.850 |
+| Nocturnal Hypoglycemia Detection — ROC-AUC | 1.000 | ≥ 0.850 |
 
-1. **Patient Triage Selector:** Live roster with risk badges (`CRITICAL`, `HIGH RISK`, `MODERATE`, `STABLE`) covering 4 diverse Indian profiles:
-   * **Rajesh Sharma (54M, Bengaluru):** High-stress IT Executive; postprandial dinner surges.
-   * **Sunita Patel (62F, Ahmedabad):** Longstanding T2D on Glimepiride; nocturnal fasting crashes.
-   * **Amit Verma (39M, New Delhi):** Young-onset T2D with high sympathetic strain and low HRV.
-   * **Priya Nair (46F, Kochi):** Mild early T2D with occasional festive excursions.
-2. **Interactive Virtual Human Organ Twin Avatar:**
-   * Glowing clickable nodes for **Pancreas ($\beta$-cell reserve)**, **Heart / HRV**, **Kidneys (eGFR)**, and **Liver (Hepatic EGP)**.
-3. **Dual Telemetry Streaming:** Synchronized 24-hour continuous stream displaying interstitial CGM readings alongside wearable PPG heart rate and activity.
-4. **2-Hour Predictive Horizon Chart:** Projected glucose curve up to $T+120$ minutes with shaded 90% confidence bands.
-5. **Physiological Risk Drivers (XAI):** Real-time percentage attribution (Carbs %, $HbA1c$ %, Inactivity %, Drug clearance %).
-6. **Counterfactual "What-If" Simulation Sandbox:**
-   * Dynamic sliders for meal carbs ($0\text{g} - 120\text{g}$) and brisk walking ($0 - 30\text{ mins}$).
-   * Prescription toggles ($+\text{SGLT2i}$, De-escalate Sulfonylurea, Optimize Metformin).
-   * Visualizes Baseline (Red dashed line) vs Counterfactual Virtual Twin (Green solid line) with $\Delta\text{Peak}$ and $\Delta\text{TIR}$.
-7. **Live Event Injector:** Instant testing buttons for presentations (`[🍽️ High-Carb Meal]`, `[🚶 15-min Walk]`, `[🌙 Skip Dinner]`, `[💼 Stress Surge]`).
-8. **One-Click RSSDI / ICMR Clinical Consultation Report:** Formats Ambulatory Glucose Profile (AGP) metrics (Mean Glucose, GMI, $CV\%$, TIR, TAR, TBR) and guideline recommendations with print/PDF export.
+### Interpretation of Results
+
+# 🖥️ PRANA-TWIN: AI-Powered Human Digital Twin Dashboard
+
+**Objective:** Build an interactive AI-powered clinical dashboard that simulates how changes in diet, physical activity, stress, and physiological conditions may influence an individual's glucose regulation and overall metabolic health.
+
+### 1. Patient Triage & Personalized Health Monitoring
+Monitor four diverse Indian patient profiles with risk indicators, personalized health data, and simulated clinical scenarios to explore different metabolic conditions.
+
+### 2. Interactive Virtual Human Organ Twin
+Create a virtual human model featuring the pancreas, heart, kidneys, and liver. Interactive organ nodes explain how changes in beta-cell function, heart-rate variability (HRV), kidney function (eGFR), and hepatic glucose production may influence metabolic health.
+
+### 3. Real-Time Health Telemetry
+Visualize synchronized 24-hour glucose readings, heart rate, and physical activity using simulated or connected wearable-device data.
+
+### 4. Predictive Glucose Intelligence
+Forecast glucose trends over the next 120 minutes, with uncertainty bands to communicate prediction confidence and potential changes in glucose levels.
+
+### 5. Explainable AI (XAI)
+Display estimated contributions from carbohydrate intake, HbA1c, inactivity, and medication-related factors to help clinicians understand the model's predictions.
+
+### 6. Human Behavior & Counterfactual Simulation
+Explore how changing meal carbohydrates, walking duration, and stress scenarios may affect predicted glucose responses. Compare baseline and simulated outcomes using glucose curves, peak differences, and time-in-range metrics.
+
+### 7. Interactive Lifestyle Event Simulator
+Introduce scenarios such as a high-carbohydrate meal, a 15-minute walk, a skipped dinner, or a stress surge to demonstrate how different behaviors may alter predicted metabolic responses.
+
+### 8. Clinical Consultation & Reporting
+Generate structured reports containing Ambulatory Glucose Profile (AGP) metrics, including mean glucose, GMI, coefficient of variation (CV%), time in range (TIR), time above range (TAR), and time below range (TBR), with printable and PDF-exportable summaries.
+
+**Innovation:** PRANA-TWIN aims to move beyond static health dashboards by creating a human-centered digital twin that explores the potential effects of lifestyle and physiological changes through interactive simulation, predictive analytics, and explainable AI.
+
+**Clinical note:** Simulated outputs are exploratory, not validated medical predictions. Medication scenarios require clinician supervision, and any claim of improving real-world health outcomes requires clinical validation.
 
 ---
 
@@ -183,8 +263,8 @@ Validated on 1,200 multi-modal test instances calibrated against epidemiological
 
 ### 1. Clone the Repository
 ```bash
-git clone https://github.com/<your-username>/prana-twin-healthcare-summit-2026.git
-cd prana-twin-healthcare-summit-2026
+git clone https://github.com/Rohit7824567/Twin_challenge.git
+cd Twin_challenge.git
 ```
 
 ### 2. Install Dependencies
